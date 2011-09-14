@@ -6,6 +6,7 @@
     <description>Full-text indexing for CouchDB</description>
     <url>http://github.com/rnewson/couchdb-lucene/</url>
     <version>0.8.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -183,6 +184,37 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
         </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-alpha-6</version>
+            </extension>
+            <extension>
+                <groupId>org.jvnet.wagon-svn</groupId>
+                <artifactId>wagon-svn</artifactId>
+                <version>1.8</version>
+            </extension>
+        </extensions>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>eckoit</id>
+            <url>svn:https://eckoit.googlecode.com/svn/maven</url>
+        </repository>
+        <snapshotRepository>
+            <id>eckoit-snapshot</id>
+            <url>svn:https://eckoit.googlecode.com/svn/maven</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
